@@ -1,3 +1,8 @@
+2.0.0
+
+ * Changed simple-rss gem dependancy to a fork that has ruby-1.9.2 fixes
+ * Changed html-cleaner add_entities - changed /n regex switch to /u to remove error about using \n in regexes with UTF-8 strings
+
 1.5.1
 
  * Fix a bug that was breaking the parsing process for certain feeds. [reported by: Patrick Minton]

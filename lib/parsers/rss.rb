@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rss'
 
 # For some reason, this is only included in the RDF Item by default (in 0.1.6).
@@ -29,7 +30,7 @@ module FeedNormalizer
       begin
         rss = parser.parse(xml)
       rescue Exception => e
-        #puts "Parser #{parser} failed because #{e.message.gsub("\n",', ')}"
+        puts "Parser #{parser} failed because #{e.message.gsub("\n",', ')}"
         return nil
       end
 

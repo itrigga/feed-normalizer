@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'hpricot'
 require 'cgi'
@@ -150,7 +151,10 @@ module FeedNormalizer
       #
       # This method could be improved by adding a whitelist of html entities.
       def add_entities(str)
-        str.to_s.gsub(/\"/n, '&quot;').gsub(/>/n, '&gt;').gsub(/</n, '&lt;').gsub(/&(?!(\#\d+|\#x([0-9a-f]+)|\w{2,8});)/nmi, '&amp;')
+        # replaced /n with /u
+        # as per https://github.com/rack/rack/issues/41 to silence warning 'regexp match /.../n against to UTF-8 string'
+        # as all strings should be UTF-8 anyway this should be safe to do
+        str.to_s.gsub(/\"/u, '&quot;').gsub(/>/u, '&gt;').gsub(/</u, '&lt;').gsub(/&(?!(\#\d+|\#x([0-9a-f]+)|\w{2,8});)/umi, '&amp;')
       end
 
       private

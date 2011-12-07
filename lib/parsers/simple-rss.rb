@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'simple-rss'
 
 # Monkey patches for outstanding issues logged in the simple-rss project.
@@ -50,7 +51,7 @@ module FeedNormalizer
       begin
         atomrss = parser.parse(xml)
       rescue Exception => e
-        #puts "Parser #{parser} failed because #{e.message.gsub("\n",', ')}"
+        puts "Parser #{parser} failed because #{e.message.gsub("\n",', ')}"
         return nil
       end
 

@@ -1,5 +1,7 @@
+# -*- encoding : utf-8 -*-
 require 'structures'
 require 'html-cleaner'
+require 'core_ext'
 
 module FeedNormalizer
 
@@ -117,7 +119,7 @@ module FeedNormalizer
     def self.parse(xml, opts = {})
 
       # Get a string ASAP, as multiple read()'s will start returning nil..
-      xml = xml.respond_to?(:read) ? xml.read : xml.to_s
+      xml = xml.respond_to?(:read) ? xml.read.to_utf8 : xml.to_s.to_utf8
 
       if opts[:force_parser]
         result = opts[:force_parser].parse(xml, opts[:loose])

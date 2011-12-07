@@ -3,28 +3,29 @@ require 'hoe'
 
 $: << "lib"
 require 'feed-normalizer'
+require 'rake'
 
-Hoe.spec("feed-normalizer") do |s|
-  s.version = "1.5.2"
-  s.author = "Andrew A. Smith"
-  s.email = "andy@tinnedfruit.org"
-  s.url = "http://github.com/aasmith/feed-normalizer"
-  s.summary = "Extensible Ruby wrapper for Atom and RSS parsers"
-  s.description = s.paragraphs_of('README.txt', 1..2).join("\n\n")
-  s.changes = s.paragraphs_of('History.txt', 0..1).join("\n\n")
-  s.extra_deps << ["simple-rss", ">= 1.1"]
-  s.extra_deps << ["hpricot", ">= 0.6"]
-  s.need_zip = true
-  s.need_tar = false
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
+  gem.name = "feed-normalizer"
+  gem.homepage = "http://github.com/itrigga/feed-normalizer"
+  gem.license = "MIT"
+  gem.summary = %Q{Extensible Ruby wrapper for Atom and RSS parsers}
+  gem.description = %Q{Extensible Ruby wrapper for Atom and RSS parsers}
+  gem.email = "support@itrigga.com"
+  gem.authors = ["Andrew A. Smith, Al Davidson","Anson Kelly"]
+  # dependencies defined in Gemfile
+end
+Jeweler::RubygemsDotOrgTasks.new
+
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/test_*.rb'
+  test.verbose = true
 end
 
+task :default => :test
 
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new("rcov") do |t|
-    t.test_files = Dir['test/test_all.rb']
-  end
-rescue LoadError
-  nil
-end
 
