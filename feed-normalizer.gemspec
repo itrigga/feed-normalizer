@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew A. Smith, Al Davidson", "Anson Kelly"]
-  s.date = "2011-12-07"
+  s.date = "2011-12-27"
   s.description = "Extensible Ruby wrapper for Atom and RSS parsers"
   s.email = "support@itrigga.com"
   s.extra_rdoc_files = [
@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "RELEASE",
     "Rakefile",
     "VERSION",
+    "feed-normalizer.gemspec",
     "lib/feed-normalizer.rb",
     "lib/html-cleaner.rb",
     "lib/parsers/rss.rb",
@@ -54,14 +55,14 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<hoe>, [">= 0"])
       s.add_runtime_dependency(%q<simple-rss>, [">= 0"])
       s.add_runtime_dependency(%q<hpricot>, [">= 0.6"])
-      s.add_runtime_dependency(%q<itrigga-core_ext>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<itrigga-core_ext>, [">= 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
     else
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<hoe>, [">= 0"])
       s.add_dependency(%q<simple-rss>, [">= 0"])
       s.add_dependency(%q<hpricot>, [">= 0.6"])
-      s.add_dependency(%q<itrigga-core_ext>, ["~> 1.0.0"])
+      s.add_dependency(%q<itrigga-core_ext>, [">= 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     end
   else
@@ -69,7 +70,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hoe>, [">= 0"])
     s.add_dependency(%q<simple-rss>, [">= 0"])
     s.add_dependency(%q<hpricot>, [">= 0.6"])
-    s.add_dependency(%q<itrigga-core_ext>, ["~> 1.0.0"])
+    s.add_dependency(%q<itrigga-core_ext>, [">= 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
   end
 end
